@@ -1,8 +1,8 @@
 class User {
-  constructor(name, age, followers) {
-    this.name = name;
-    this.age = age;
-    this.followers = followers;
+  constructor(obj) {
+    this.name = obj.name;
+    this.age = obj.age;
+    this.followers = obj.followers;
   }
 
   get info() {
@@ -10,8 +10,17 @@ class User {
   }
 }
 
-const mango = new User('Mango', 2, 20);
+const mango = new User({
+  name: 'Mango',
+  age: 2,
+  followers: 20,
+});
+
 console.log(mango.info);
 
-const poly = new User('Poly', 3, 17);
+const poly = new User({
+  name: 'Poly',
+  age: 3,
+  followers: 17,
+});
 console.log(poly.info);

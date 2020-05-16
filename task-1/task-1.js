@@ -1,15 +1,22 @@
-const Account = function(login, email) {
-  this.login = login;
-  this.email = email;
+const Account = function(obj) {
+  this.login = obj.login;
+  this.email = obj.email;
 };
+
 Account.prototype.getInfo = function() {
   console.log(`Логин:${this.login} и email:${this.email}`);
 };
 console.log(Account);
+const mango = new Account({
+  login: 'Mangozedog',
+  email: 'mango@dog.woof',
+});
 
-const poly = new Account('Poly', 'poly@mail.com');
+mango.getInfo(); // Login: Mangozedog, Email: mango@dog.woof
 
-poly.getInfo();
-const mango = new Account('Mangozedog', 'mango@dog.woof');
+const poly = new Account({
+  login: 'Poly',
+  email: 'poly@mail.com',
+});
 
-mango.getInfo();
+poly.getInfo(); // Login: Poly, Email: poly@mail.com

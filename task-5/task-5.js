@@ -3,6 +3,8 @@ class Car {
     this.$price = price;
     this.maxSpeed = maxSpeed;
     this.distance = 0;
+    this.speed = 0;
+    this.isOn = false;
   }
 
   static getSpecs(car) {
@@ -30,15 +32,15 @@ class Car {
   }
 
   accelerate(value) {
-    if (value <= this.maxSpeed) {
-      this.speed = value;
+    if (this.speed + value <= this.maxSpeed) {
+      this.speed += value;
     } else {
       console.log(`Ваша скорость не может быть больше ${this.maxSpeed}`);
     }
   }
 
   decelerate(value) {
-    if (value > 0) {
+    if (value >= 0) {
       this.speed -= value;
     }
   }
